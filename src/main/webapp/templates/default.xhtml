@@ -11,9 +11,44 @@
 <h:body>
   <h:outputStylesheet library="css" name="default.css" target="body" />
 	<div class="heading">
-	  <ui:insert name="heading">
-       #{msg.mainHeading}
-     </ui:insert>
+	  	<ui:insert name="heading">
+	  		<div id="naglowek" style="margin-top: 40px;">
+	 			#{msg.mainHeading}
+	 		</div>
+	 		
+	 		
+	 		<div id="czas" class="czas"></div>
+			<script type="text/javascript">
+				function getTime()
+				{
+					return (new Date()).toLocaleTimeString();
+				}
+
+				document.getElementById('czas').innerHTML = getTime();
+
+				setInterval(function() {
+					document.getElementById('czas').innerHTML = getTime();
+				}, 1000);
+				
+				var col=0;
+				var colors = ["red", "blue", "green", "yellow", "pink", "orange", "black"]; 
+				function changeColor() 
+				{
+				    if(col>colors.length-1)
+				    {
+				    	col=0;
+				    }
+				    document.getElementById("naglowek").style.color=colors[col];
+				    col++;
+				    
+				}
+				setInterval(changeColor,750);
+				
+			</script>
+	 		
+	 		
+	 		
+     	</ui:insert>
     </div>
 	<div class="menuAndContent">
 	 <div class="menu">

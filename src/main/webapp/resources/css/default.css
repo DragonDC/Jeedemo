@@ -1,4 +1,4 @@
-body {
+/* body {
    margin: 0;
    padding: 0;
    background-color:  lightGray;
@@ -47,3 +47,219 @@ body {
   top: 90px;
   height: 80%;
 }
+ */
+ body {
+   margin: 0;
+   padding: 0;
+   font-family: Verdana, sans-serif;
+   font-size: 0.9em;
+}
+
+.heading {
+ 	background-color: #dedef8;
+  	border: 2px solid orange;
+  	width: 1250px;
+  	height: 125px;
+  	font-size: 24px;
+  	text-align: center;
+  	margin-left: auto;
+  	margin-right: auto;
+  	margin-top: 40px;
+  	margin-bottom: 20px;
+  	border-radius: 10px;
+}
+
+.menuAndContent {
+  width: 100%;
+  height: 100%;
+}
+
+.menu {
+	float:left;
+ 	background-color: #dedef8;
+  	border: 2px solid orange;
+  	width: 200px;
+  	height: 530px;
+  	margin-left: 50px;
+  	margin-right: auto;
+  	margin-top: 40px;
+  	margin-bottom: 20px;
+  	border-radius: 10px;
+}
+
+.content {
+	float:left;
+  	background-color: #dedef8;
+  	border: 2px solid orange;
+  	width: 980px;
+  	margin-left: 70px;
+  	margin-right: auto;
+  	margin-top: 40px;
+  	margin-bottom: 20px;
+  	border-radius: 10px;
+}
+
+.tekstStronaGlowna{
+	font-size: 18px;	
+	text-align: center;
+}
+
+.tramwajform .dodaj_btn{
+	border-radius: 5px;
+	height: 30px;
+	width: 160px;
+	font-size:17px;
+	border: 1px solid green;
+	margin-top: 25px;
+	margin-left: 20px;
+	margin-right: 20px;
+	text-align: center;
+}
+
+.showTramwajForm .dodaj_btn{
+	border-radius: 5px;
+	height: 30px;
+	width: 160px;
+	font-size:17px;
+	border: 1px solid green;
+	margin-top: 25px;
+	margin-bottom: 25px;
+	margin-left: 410px;
+	margin-right: 410px;
+	text-align: center;
+}
+
+.tabela .dodaj_btn{
+	border-radius: 5px;
+	height: 30px;
+	width: 100px;
+	font-size:15px;
+	border: 1px solid green;
+	margin-left: 10px;
+	margin-right: 10px;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	text-align: center;
+}
+
+
+.buttons .button{
+	border-radius: 5px;
+	height: 30px;
+	width: 160px;
+	font-size:17px;
+	border: 1px solid blue;
+	margin-top: 25px;
+	margin-left: 20px;
+	margin-right: 20px;
+	text-align: center;
+}
+
+.buttons .but{
+	border-radius: 5px;
+	height: 30px;
+	width: 160px;
+	font-size:17px;
+	border: 1px solid orange;
+	margin-top: 25px;
+	margin-left: 20px;
+	margin-right: 20px;
+	text-align: center;
+}
+
+.obrazek_glowna{
+	text-align: center;
+}
+
+.obrazek_glowna .obrazek{
+	margin: 20px;
+	margin-right: 20px;
+	margin-top: 30px;
+	width: 600px;
+	height: 400px;
+	padding: 2px;
+   	border: 2px solid #021a40;	
+}
+
+.tabela{
+	margin-top: 20px;
+	margin-left: auto;
+	margin-right: auto;
+	margin-bottom: 20px;
+	border-collapse:separate;
+   	border:2px solid #000000;
+}
+
+/* .kolumnaZ{
+	width: 100px;
+} */
+
+.naglowek{
+	text-align:center;
+   background:none repeat scroll 0 0 #B5B5B5;
+   border-bottom:1px solid #000000;  
+   padding:2px
+}
+
+.tramwajform .napis{
+	margin-top: 20px;
+	margin-left: 20px;
+}
+
+.tramwajform .pola_wypelniania{
+	width: 190px;
+	height: 22px;
+	font-size: 14px;
+}
+
+.tabela .obrazekTabela{
+	height: 80px;
+	width: 100px;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	margin-left: 15px;
+	margin-right: 15px;
+}
+
+.tabela .napisyTabela{
+	font-size: 12px;
+	margin-left: 25px;
+	margin-right: 25px;
+}
+
+.tabela .napisyEdycja{
+	font-size: 10px;
+	width: 90px;
+	margin-left: 5px;
+	margin-right: 5px;
+}
+
+.tabela .dataTabela{
+	font-size: 10px;
+	margin-left: 10px;
+	margin-right: 10px;
+}
+
+.tabela .buttonUsun{
+	border-radius: 5px;
+	height: 30px;
+	width: 100px;
+	font-size:15px;
+	border: 1px solid red;
+	margin-left: 10px;
+	margin-right: 10px;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	text-align: center;
+}
+
+.heading .czas{
+	margin-top: 20px;
+}
+
+.tabela .kolumna_akcja{
+	background:none repeat scroll 0 0 #B5B5B5;
+	border-bottom:1px solid #000000; 
+	width: 120px;
+}
+ 

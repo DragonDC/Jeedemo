@@ -3,7 +3,7 @@
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:h="http://java.sun.com/jsf/html">
-  <div>
+  <!-- <div>
 	<h:form>
 	  <ul>
 		<li>
@@ -12,20 +12,91 @@
 		  </h:commandLink>
 		</li>
 		<li>
-		  <h:commandLink action="add?faces-redirect=true">
-			<h:outputText value="#{msg.personAddLabel}" />
-		  </h:commandLink></li>
-		<li>
-		  <h:commandLink action="showPersons?faces-redirect=true">
-			 <h:outputText value="#{msg.personAllLabel}" />
+		  <h:commandLink action="addProducent?faces-redirect=true">
+			<h:outputText value="#{msg.producentAddLabel}" />
 		  </h:commandLink>
 		</li>
 		<li>
-		  <h:commandLink action="sell">
-			 <h:outputText value=" Sell car" />
+		  <h:commandLink action="addTramwaj?faces-redirect=true">
+			<h:outputText value="#{msg.tramwajAddLabel}" />
 		  </h:commandLink>
 		</li>
+		<li>
+		  <h:commandLink action="addLokalizacja?faces-redirect=true">
+			<h:outputText value="Dodaj lokalizacje" />
+		  </h:commandLink>
+		</li>
+		<li>
+		  <h:commandLink action="showProducenci?faces-redirect=true">
+			 <h:outputText value="#{msg.producentAll}" />
+		  </h:commandLink>
+		</li>
+		<li>
+		  <h:commandLink action="showTramwaje?faces-redirect=true">
+			 <h:outputText value="#{msg.tramwajAll}" />
+		  </h:commandLink>
+		</li>
+		<li>
+		  <h:commandLink action="showLokalizacje?faces-redirect=true">
+			 <h:outputText value="Wszystkie lokalizacje" />
+		  </h:commandLink>
+		</li>
+		<li>
+		  <h:commandLink action="przypisanieTramwajuDoProducenta?faces-redirect=true">
+			 <h:outputText value="Przypisanie tramwaju" />
+		  </h:commandLink>
+		</li>
+		<li>
+		  <h:commandLink action="przypisanieLokalizacjiDoProducenta?faces-redirect=true">
+			 <h:outputText value="Przypisanie lokalizacji" />
+		  </h:commandLink>
+		</li>	
 	</ul>
    </h:form>
+  </div> -->
+  
+  <div>
+	<h:form>
+	     	
+    	<div class="buttons">
+    		<h:commandButton value="#{msg.linkHome}" styleClass="button" action="home?faces-redirect=true"/>
+		</div>
+		
+		<div class="buttons">
+    		<h:commandButton value="#{msg.producentAddLabel}" styleClass="button" action="addProducent?faces-redirect=true"/>
+		</div>
+		
+		<div class="buttons">
+    		<h:commandButton value="#{msg.tramwajAddLabel}" styleClass="button" action="addTramwaj?faces-redirect=true"/>
+		</div>
+		
+		<div class="buttons">
+    		<h:commandButton value="#{msg.lokalizacjaAddLabel}" styleClass="button" action="addLokalizacja?faces-redirect=true"/>
+		</div>
+		
+		<div class="buttons">
+    		<h:commandButton value="#{msg.producentAll}" style="font-size:16px;" styleClass="button" action="showProducenci?faces-redirect=true"/>
+		</div>
+		
+		<div class="buttons">
+    		<h:commandButton value="#{msg.tramwajAll}" styleClass="button" action="showTramwaje?faces-redirect=true"/>
+		</div>
+		
+		<div class="buttons">
+    		<h:commandButton value="#{msg.lokalizacjaAll}" style="font-size:16px;" styleClass="button" action="showLokalizacje?faces-redirect=true"/>
+		</div>
+		
+		<div class="buttons">
+    		<h:commandButton value="#{msg.przypisanieTramwaju}" style="font-size:16px;" styleClass="button" action="przypisanieTramwajuDoProducenta?faces-redirect=true"/>
+		</div>
+		
+		<div class="buttons">
+    		<h:commandButton value="#{msg.przypisanieLokalizacji}" style="font-size:15px;" styleClass="button" action="przypisanieLokalizacjiDoProducenta?faces-redirect=true"/>
+		</div>
+		
+		
+   </h:form>
   </div>
+  
+  
 </ui:composition>
