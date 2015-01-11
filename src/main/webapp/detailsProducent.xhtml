@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	template="/templates/default.xhtml">
+
+	<ui:define name="content">
+		<h:form id="showTramwajForm" styleClass="showTramwajForm">
+    		<h:outputStylesheet library="css" name="default.css" target="dataTable" />
+    		
+			<h:dataTable value="#{producentBean.ownedTramwaje}" var="item" border="1" styleClass="tabela" headerClass="naglowek">
+				<f:facet name="header">#{msg.tramwajeProducenta}</f:facet>
+				<h:column>
+					<f:facet name="header">#{msg.tramwajKolumnModel}</f:facet>
+					<h:outputText value="#{item.model}" styleClass="napisyTabela" />
+				</h:column>
+				
+				<h:column>
+        			<f:facet name="header">#{msg.tramwajKolumnKod}</f:facet>
+        			<h:outputText value="#{item.kodTramwaju}" styleClass="napisyTabela"/>
+      			</h:column>
+
+				<h:column>
+					<f:facet name="header">#{msg.tramwajKolumnRozstawOsi}</f:facet>
+					<h:outputText value="#{item.rozstawOsi}" styleClass="napisyTabela"/>
+				</h:column>
+				
+				<h:column>
+        			<f:facet name="header">#{msg.tramwajKolumnKolor}</f:facet>
+        			<h:outputText value="#{item.kolor}" styleClass="napisyTabela"/>
+      			</h:column>
+				
+				<h:column>
+        			<f:facet name="header">#{msg.tramwajKolumnZdjecie}</f:facet>
+        			<h:graphicImage value="#{item.zdjecie}" styleClass="obrazekTabela" />
+      			</h:column>
+
+				<h:column headerClass="kolumna_akcja">
+					<f:facet name="header">#{msg.action}</f:facet>
+        			<h:commandButton value="#{msg.actionDelete}" action="#{producentBean.disposeTramwaj}" styleClass="buttonUsun"/>
+      				
+				</h:column>
+
+			</h:dataTable>
+		
+		
+		
+    		<h:outputStylesheet library="css" name="default.css" target="dataTable" />
+    		
+			<h:dataTable value="#{producentBean.ownedLokalizacje}" var="item" border="1" styleClass="tabela" headerClass="naglowek">
+				<f:facet name="header">#{msg.lokalizacjeOddzialow}</f:facet>
+				
+				<h:column>
+        			<f:facet name="header">#{msg.lokalizacjaKolumnKraj}</f:facet>
+        			<h:outputText value="#{item.kraj}" styleClass="napisyTabela" />
+        		</h:column>
+      
+      			<h:column>
+        			<f:facet name="header">#{msg.lokalizacjaKolumnWoj}</f:facet>
+        			<h:outputText value="#{item.wojewodztwo}" styleClass="napisyTabela" />
+      			</h:column>
+      
+      	
+      			<h:column>
+        			<f:facet name="header">#{msg.lokalizacjaKolumnMiasto}</f:facet>
+        			<h:outputText value="#{item.miasto}" styleClass="napisyTabela" />
+       			</h:column>
+      
+      			<h:column>
+        			<f:facet name="header">#{msg.lokalizacjaKolumnUlica}</f:facet>
+        			<h:outputText value="#{item.ulica}" styleClass="napisyTabela" />
+        		</h:column>
+      
+      
+      			<h:column headerClass="kolumna_akcja">
+        			<f:facet name="header">#{msg.action}</f:facet>
+        			<h:commandButton value="#{msg.actionDelete}" action="#{producentBean.disposeLokalizacja}" styleClass="buttonUsun"/>        
+				
+        		
+      	
+      			</h:column>
+
+			</h:dataTable>
+		</h:form>
+
+	</ui:define>
+
+</ui:composition>

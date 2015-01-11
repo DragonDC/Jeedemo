@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	template="/templates/default.xhtml">
+
+	
+	<ui:define name="content">
+	
+    <h:form id="showTramwajForm" styleClass="showTramwajForm">
+    	<h:outputStylesheet library="css" name="default.css" target="dataTable" />
+    	
+     <h:dataTable value="#{tramwajBean.allTramwaj}" var="item" border="1" styleClass="tabela" headerClass="naglowek">
+      <f:facet name="header">#{msg.tramwaje}</f:facet>
+      
+      <h:column>
+        <f:facet name="header">#{msg.tramwajKolumnModel}</f:facet>
+        <h:outputText value="#{item.model}" styleClass="napisyTabela" />
+      </h:column>
+      
+      <h:column>
+        <f:facet name="header">#{msg.tramwajKolumnKod}</f:facet>
+        <h:outputText value="#{item.kodTramwaju}" styleClass="napisyTabela" />
+      </h:column>
+      
+      <h:column>
+			<f:facet name="header">#{msg.tramwajKolumnRozstawOsi}</f:facet>
+			<h:outputText value="#{item.rozstawOsi}" styleClass="napisyTabela"/>
+	  </h:column>
+      
+      <h:column>
+        <f:facet name="header">#{msg.tramwajKolumnKolor}</f:facet>
+        <h:outputText value="#{item.kolor}" styleClass="napisyTabela" />
+      </h:column>
+      
+      <h:column>
+        <f:facet name="header">#{msg.tramwajKolumnZdjecie}</f:facet>
+        <h:graphicImage value="#{item.zdjecie}" styleClass="obrazekTabela" />
+      </h:column>
+      
+      <h:column headerClass="kolumna_akcja">
+        <f:facet name="header">#{msg.action}</f:facet>
+        <h:commandButton value="#{msg.actionDelete}" rendered="#{not item.sold}" action="#{tramwajBean.deleteTramwaj}" styleClass="buttonUsun"/>
+      
+      	<h:commandButton value="#{msg.showTramwajEdycja}"  styleClass="buttonUsun" action="#{tramwajBean.editTramwaj}">        
+                 
+        </h:commandButton>
+      	
+      </h:column>
+      
+     </h:dataTable>
+     
+     	
+     
+    </h:form>
+      
+	</ui:define>
+	
+
+</ui:composition>

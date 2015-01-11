@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	template="/templates/default.xhtml">
+
+	<ui:define name="content">
+		<h:form id="showTramwajForm" styleClass="showTramwajForm">
+    	<h:outputStylesheet library="css" name="default.css" target="dataTable" />
+    	
+			<h:dataTable value="#{producentBean.allProducent}" var="item" border="1" styleClass="tabela" headerClass="naglowek">
+				<f:facet name="header">#{msg.producenci}</f:facet>
+				<h:column>
+					<f:facet name="header">#{msg.producentNazwa}</f:facet>
+					<h:outputText value="#{item.producentNazwa}" styleClass="napisyTabela"/>
+				</h:column>
+
+				<h:column>
+					<f:facet name="header">#{msg.producentStrona}</f:facet>
+					<h:outputLink value="#{item.stronaProducenta}" styleClass="napisyTabela" >#{item.stronaProducenta}</h:outputLink>
+				</h:column>
+				
+				<h:column>
+					<f:facet name="header">#{msg.producentDataPow}</f:facet>
+					<h:outputText value="#{item.dataPowstaniaFirmy}" styleClass="napisyTabela" />
+				</h:column>
+
+				<h:column>
+					<f:facet name="header">#{msg.action}</f:facet>
+					<h:commandButton value="#{msg.actionDelete}" action="#{producentBean.deleteProducent}" styleClass="buttonUsun" />
+					<h:commandButton value="#{msg.producentSzczegoly}" action="#{producentBean.showDetails}" styleClass="buttonUsun" />
+					<h:commandButton value="#{msg.showTramwajEdycja}"  styleClass="buttonUsun" action="#{producentBean.editProducent}"/>
+				</h:column>
+
+			</h:dataTable>
+		</h:form>
+
+	</ui:define>
+
+</ui:composition>

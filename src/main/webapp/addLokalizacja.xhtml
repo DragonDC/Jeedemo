@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	template="/templates/default.xhtml"
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:rich="http://richfaces.org/rich">
+	
+	<ui:define name="content">
+
+		<h:form id="personForm" styleClass="tramwajform">
+			<h:panelGrid columns="2">
+
+				<h:outputText value="&lt;br /&gt;" escape="false"/>
+				<h:outputText value="&lt;br /&gt;" escape="false"/>
+				
+				<h:outputText value="#{lokalizacjaBean.lokalizacja.setWojewodztwo('')}" />
+				<h:outputText value="#{lokalizacjaBean.lokalizacja.setKraj('')}" />
+				<h:outputText value="#{lokalizacjaBean.lokalizacja.setMiasto('')}" />
+				<h:outputText value="#{lokalizacjaBean.lokalizacja.setUlica('')}" />
+				
+				
+				
+				<h:outputText value="&#160;&#160;&#160;&#160;#{msg.lokalizacjaKraj}&#160;&#160;&#160;&#160;&#160;&#160;" />
+					<h:inputText id="kraj" value="#{lokalizacjaBean.lokalizacja.kraj}" required="#{true}" styleClass="pola_wypelniania">
+				</h:inputText>
+				<h:outputText value="&lt;br /&gt;" escape="false"/>
+				<h:outputText value="&lt;br /&gt;" escape="false"/>
+				
+				
+				<h:outputText value="&#160;&#160;&#160;&#160;#{msg.lokalizacjaWoj}&#160;&#160;&#160;&#160;&#160;&#160;" />
+					<h:inputText id="wojewodztwo" value="#{lokalizacjaBean.lokalizacja.wojewodztwo}" required="#{true}" styleClass="pola_wypelniania">
+				</h:inputText>
+				<h:outputText value="&lt;br /&gt;" escape="false"/>
+				<h:outputText value="&lt;br /&gt;" escape="false"/>
+				
+				<h:outputText value="&#160;&#160;&#160;&#160;#{msg.lokalizacjaMiasto}&#160;&#160;&#160;&#160;&#160;&#160;" />
+					<h:inputText id="miasto" value="#{lokalizacjaBean.lokalizacja.miasto}" required="#{true}" styleClass="pola_wypelniania">
+				</h:inputText>
+				<h:outputText value="&lt;br /&gt;" escape="false"/>
+				<h:outputText value="&lt;br /&gt;" escape="false"/>
+				
+				<h:outputText value="&#160;&#160;&#160;&#160;#{msg.lokalizacjaUlica}&#160;&#160;&#160;&#160;&#160;&#160;" />
+					<h:inputText id="ulica" value="#{lokalizacjaBean.lokalizacja.ulica}" required="#{true}" styleClass="pola_wypelniania">
+				</h:inputText>
+				<h:outputText value="&lt;br /&gt;" escape="false"/>
+				<h:outputText value="&lt;br /&gt;" escape="false"/>
+						
+				
+				<h:outputText value="&lt;br /&gt;" escape="false"/>
+				<h:outputText value="&lt;br /&gt;" escape="false"/>
+				
+
+			</h:panelGrid>
+
+			<h:commandButton value="#{msg.personFormOKButton}" action="#{lokalizacjaBean.addLokalizacja}" styleClass="dodaj_btn"/>
+
+
+			<h:panelGrid>
+				<h:messages id="messages" showDetail="#{true}"
+					showSummary="#{false}" />
+			</h:panelGrid>
+
+			
+
+		</h:form>
+	</ui:define>
+</ui:composition>

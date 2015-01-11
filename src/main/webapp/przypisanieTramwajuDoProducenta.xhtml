@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	template="/templates/default.xhtml"
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:rich="http://richfaces.org/rich">
+
+	<ui:define name="content">
+		<h:form id="personForm" styleClass="tramwajform">
+			<h:panelGrid columns="2">
+			
+				<h:outputText value="&lt;br /&gt;" escape="false"/>
+				<h:outputText value="&lt;br /&gt;" escape="false"/>
+				<h:outputText value="&lt;br /&gt;" escape="false"/>
+				<h:outputText value="&lt;br /&gt;" escape="false"/>
+
+				<h:outputText value="&#160;&#160;&#160;&#160;#{msg.producent}&#160;&#160;&#160;&#160;" />
+				<h:selectOneMenu value="#{przypisanieBean.producentId}" styleClass="pola_wypelniania">
+					<f:selectItems value="#{przypisanieBean.allProducent}" var="producent"
+						itemValue="#{producent.id}" itemLabel="#{producent.producentNazwa}" />
+				</h:selectOneMenu>
+				
+				<h:outputText value="&lt;br /&gt;" escape="false"/>
+				<h:outputText value="&lt;br /&gt;" escape="false"/>
+
+				<h:outputText value="&#160;&#160;&#160;&#160;#{msg.tramwaj}&#160;&#160;&#160;&#160;" />
+				<h:selectOneMenu value="#{przypisanieBean.tramwajId}" styleClass="pola_wypelniania">
+					<f:selectItems value="#{przypisanieBean.availableTramwaje}" var="tramwaj"
+						itemValue="#{tramwaj.id}" itemLabel="#{tramwaj.model} #{tramwaj.kodTramwaju}" />
+				</h:selectOneMenu>
+
+
+			</h:panelGrid>
+
+			<h:commandButton value="#{msg.przypiszTramwaj}" action="#{przypisanieBean.przypisanieTramwaj}" styleClass="dodaj_btn" />
+			
+			<h:outputText value="&lt;br /&gt;" escape="false"/>
+			<h:outputText value="&lt;br /&gt;" escape="false"/>
+			
+			<h:panelGrid>
+				<h:messages id="messages" showDetail="#{true}"
+					showSummary="#{false}" />
+			</h:panelGrid>
+
+		</h:form>
+
+	</ui:define>
+</ui:composition>

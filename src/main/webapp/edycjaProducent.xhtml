@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	template="/templates/default.xhtml"
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:rich="http://richfaces.org/rich">
+
+	<ui:define name="content">
+		<h:form id="producentForm" styleClass="tramwajform">
+			<h:panelGrid columns="2">
+			
+				<h:outputText value="&lt;br /&gt;" escape="false"/>
+				<h:outputText value="&lt;br /&gt;" escape="false"/>
+				<h:outputText value="&lt;br /&gt;" escape="false"/>
+				
+				<h:outputText value="#{producentBean.producent.setProducentNazwa(producentBean.producent.producentNazwa)}" />
+				<h:outputText value="#{producentBean.producent.setStronaProducenta(producentBean.producent.stronaProducenta)}" />
+				<h:outputText value="#{producentBean.producent.setDataPowstaniaFirmy(producentBean.producent.dataPowstaniaFirmy)}" />
+
+				<h:outputText value="&#160;&#160;&#160;&#160;#{msg.producentNazwa}&#160;&#160;&#160;&#160;" />
+				<h:inputText id="nazwaProducenta" value="#{producentBean.producent.producentNazwa}"
+					required="#{true}" styleClass="pola_wypelniania" />
+				<h:outputText value="&lt;br /&gt;" escape="false"/>
+				<h:outputText value="&lt;br /&gt;" escape="false"/>	
+
+				<h:outputText value="&#160;&#160;&#160;&#160;#{msg.producentStrona}&#160;&#160;&#160;&#160;" />
+				<h:inputText id="stronaProducenta" value="#{producentBean.producent.stronaProducenta}" styleClass="pola_wypelniania" />
+				<h:outputText value="&lt;br /&gt;" escape="false"/>
+				<h:outputText value="&lt;br /&gt;" escape="false"/>
+
+				<h:outputText value="&#160;&#160;&#160;&#160;#{msg.producentDataPow}&#160;&#160;&#160;&#160;" />
+				<rich:calendar value="#{producentBean.producent.dataPowstaniaFirmy}"
+					id="calendar" datePattern="dd.MM.yyyy" showApplyButton="#{true}"
+					style="width:200px">
+				</rich:calendar>
+				<h:outputText value="&lt;br /&gt;" escape="false"/>
+				<h:outputText value="&lt;br /&gt;" escape="false"/>
+			</h:panelGrid>
+
+			<h:commandButton value="#{msg.personFormOKButton}"
+				action="#{producentBean.updateProducent}" styleClass="dodaj_btn" />
+
+			<h:panelGrid>
+				<h:messages for="" />
+				<h:messages id="messages" showDetail="#{true}"
+					showSummary="#{false}" />
+			</h:panelGrid>
+
+		</h:form>
+
+	</ui:define>
+</ui:composition>

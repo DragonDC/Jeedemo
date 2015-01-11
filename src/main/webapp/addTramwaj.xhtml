@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	template="/templates/default.xhtml"
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:rich="http://richfaces.org/rich">
+	
+	<ui:define name="content">
+
+		<h:form id="personForm" styleClass="tramwajform">
+			<h:panelGrid columns="2">
+
+				<h:outputText value="&lt;br /&gt;" escape="false"/>
+				<h:outputText value="&lt;br /&gt;" escape="false"/>
+				<h:outputText value="&lt;br /&gt;" escape="false"/>
+				
+				<h:outputText value="#{tramwajBean.tramwaj.setModel('')}" />
+				<h:outputText value="#{tramwajBean.tramwaj.setZdjecie('')}" />
+				<h:outputText value="#{tramwajBean.tramwaj.setKodTramwaju('')}" />
+				<h:outputText value="#{tramwajBean.tramwaj.setLiczbaMiejsc(1)}" />
+				<h:outputText value="#{tramwajBean.tramwaj.setWysPodlogi('Wysokopodlogowy')}" />
+				<h:outputText value="#{tramwajBean.tramwaj.setRozstawOsi('1000 mm')}" />
+				<h:outputText value="#{tramwajBean.tramwaj.setKolor('')}" />
+				
+				
+				<h:outputText value="&#160;&#160;&#160;&#160;#{msg.tramwajModelLabel}&#160;&#160;&#160;&#160;&#160;&#160;" />
+					<h:inputText id="model" value="#{tramwajBean.tramwaj.model}" required="#{true}" styleClass="pola_wypelniania">
+					<f:ajax execute="@this" render="messages beanState" />
+				</h:inputText>
+				<h:outputText value="&lt;br /&gt;" escape="false"/>
+				<h:outputText value="&lt;br /&gt;" escape="false"/>
+				
+				<h:outputText value="&#160;&#160;&#160;&#160;#{msg.tramwajWysPodlogiLabel}&#160;&#160;" />
+				<h:selectOneMenu value="#{tramwajBean.tramwaj.wysPodlogi}" styleClass="pola_wypelniania">
+				   <f:selectItem itemValue="#{msg.tramwajWysokoscValue1}" itemLabel="#{msg.tramwajWysokosc1}" />
+				   <f:selectItem itemValue="#{msg.tramwajWysokoscValue2}" itemLabel="#{msg.tramwajWysokosc2}" />	 
+				   <f:selectItem itemValue="#{msg.tramwajWysokoscValue3}" itemLabel="#{msg.tramwajWysokosc3}" />	  							
+				</h:selectOneMenu>
+				<h:outputText value="&lt;br /&gt;" escape="false"/>
+				<h:outputText value="&lt;br /&gt;" escape="false"/>
+				
+				<h:outputText value="&#160;&#160;&#160;&#160;#{msg.tramwajLiczbaMiejscLabel}&#160;&#160;&#160;&#160;&#160;&#160;" />
+					<h:inputText id="liczbaMiejsc" value="#{tramwajBean.tramwaj.liczbaMiejsc}" required="#{true}" styleClass="pola_wypelniania">
+				</h:inputText>
+				<h:outputText value="&lt;br /&gt;" escape="false"/>
+				<h:outputText value="&lt;br /&gt;" escape="false"/>
+				
+				<h:outputText value="&#160;&#160;&#160;&#160;#{msg.tramwajKodLabel}&#160;&#160;&#160;&#160;&#160;&#160;" />
+					<h:inputText id="kodTramwaju" value="#{tramwajBean.tramwaj.kodTramwaju}" required="#{true}" styleClass="pola_wypelniania">
+					<f:validator validatorId="kodTramwajuValidator" />
+					<f:ajax execute="@this" render="messages beanState" />
+				</h:inputText>
+				<h:outputText value="&lt;br /&gt;" escape="false"/>
+				
+				<!-- <h:outputText value="&lt;br /&gt;" escape="false"/> -->
+				
+				<!-- <h:outputText value="&#160;&#160;&#160;&#160;#{msg.tramwajDataProdukcji}" />
+				<h:inputText id="dataProdukcji" value="#{tramwajBean.tramwaj.dataProdukcji}" styleClass="pola_wypelniania">
+				  <f:convertDateTime type="date" pattern="dd.MM.yyyy" />
+				</h:inputText>
+				<h:outputText value="&lt;br /&gt;" escape="false"/>
+				<h:outputText value="&lt;br /&gt;" escape="false"/> -->
+				
+				<h:outputText value="&#160;&#160;&#160;&#160;#{msg.tramwajDataProdukcji}" />
+				<rich:calendar value="#{tramwajBean.tramwaj.dataProdukcji}"
+					id="dataProdukcji" datePattern="dd.MM.yyyy" showApplyButton="#{true}" styleClass="pola_wypelniania"
+					cellWidth="24px" cellHeight="22px" style="width:200px">
+					<a4j:ajax render="messages" execute="@this" />
+				</rich:calendar>
+				<h:outputText value="&lt;br /&gt;" escape="false"/>
+				<h:outputText value="&lt;br /&gt;" escape="false"/>
+				
+				<h:outputText value="&#160;&#160;&#160;&#160;#{msg.tramwajRozstawOsiLabel}&#160;" />
+				<h:selectOneRadio value="#{tramwajBean.tramwaj.rozstawOsi}">
+   					<f:selectItem itemValue="1000 mm" itemLabel="1000 mm" />
+   					<f:selectItem itemValue="1435 mm" itemLabel="1435 mm" />
+   					<f:selectItem itemValue="1524 mm" itemLabel="1524 mm" />
+				</h:selectOneRadio>
+				<h:outputText value="&lt;br /&gt;" escape="false"/>
+				<h:outputText value="&lt;br /&gt;" escape="false"/>
+				
+				
+				<h:outputText value="&#160;&#160;&#160;&#160;#{msg.tramwajKolorLabel}&#160;" />
+				<h:selectOneRadio id="kolor" value="#{tramwajBean.tramwaj.kolor}" layout="pageDirection" required="#{true}">
+   					<f:selectItem itemValue="#{msg.tramwajKolorValue1}" itemLabel="#{msg.tramwajKolor1}" partialSubmit="true"/>
+   					<f:selectItem itemValue="#{msg.tramwajKolorValue2}" itemLabel="#{msg.tramwajKolor2}" />
+   					<f:selectItem itemValue="#{msg.tramwajKolorValue3}" itemLabel="#{msg.tramwajKolor3}" />
+   					<f:selectItem itemValue="#{msg.tramwajKolorValue4}" itemLabel="#{msg.tramwajKolor4}" />
+   					<f:selectItem itemValue="#{msg.tramwajKolorValue5}" itemLabel="#{msg.tramwajKolor5}" />
+   					<f:selectItem itemValue="#{msg.tramwajKolorValue6}" itemLabel="#{msg.tramwajKolor6}" />
+   					<f:selectItem itemValue="#{msg.tramwajKolorValue7}" itemLabel="#{msg.tramwajKolor7}" />
+   					<f:selectItem itemValue="#{msg.tramwajKolorValue8}" itemLabel="#{msg.tramwajKolor8}" />
+					<f:ajax execute="@this" render="messages beanState" />
+				</h:selectOneRadio>
+				<h:outputText value="&lt;br /&gt;" escape="false"/>
+				<h:outputText value="&lt;br /&gt;" escape="false"/>
+				
+				
+				<h:outputText value="&#160;&#160;&#160;&#160;#{msg.tramwajZdjecieLabel}&#160;&#160;&#160;&#160;&#160;&#160;" />
+				<h:inputText id="zdjecie" value="#{tramwajBean.tramwaj.zdjecie}" required="#{true}" styleClass="pola_wypelniania"/>
+				
+				<h:outputText value="&lt;br /&gt;" escape="false"/>
+				<h:outputText value="&lt;br /&gt;" escape="false"/>
+				
+
+			</h:panelGrid>
+
+			<h:commandButton value="#{msg.personFormOKButton}" action="#{tramwajBean.addTramwaj}" styleClass="dodaj_btn"/>
+
+
+			<h:panelGrid>
+				<h:messages id="messages" showDetail="#{true}"
+					showSummary="#{false}" />
+			</h:panelGrid>
+
+			<h:panelGrid id="beanState" columns="2">
+				<h:outputText value="&lt;br /&gt;" escape="false"/>
+				<h:outputText value="&lt;br /&gt;" escape="false"/>
+
+				<h:outputText value="&#160;&#160;&#160;&#160;#{msg.tramwajKolumnModel}&#160;&#160;&#160;&#160;" />
+				<h:outputText id="modelOutput" value="#{tramwajBean.tramwaj.model}" />
+				
+				<h:outputText value="&#160;&#160;&#160;&#160;#{msg.tramwajKolumnKod}&#160;&#160;&#160;&#160;" />
+				<h:outputText id="kodOutput" value="#{tramwajBean.tramwaj.kodTramwaju}" />
+				
+				<h:outputText value="&#160;&#160;&#160;&#160;#{msg.tramwajKolumnKolor}&#160;&#160;&#160;&#160;" />
+				<h:outputText id="kolorOutput" value="#{tramwajBean.tramwaj.kolor}" />
+
+				<h:outputText value="&#160;&#160;&#160;&#160;#{msg.tramwajKolumnDataProdukcji}&#160;&#160;&#160;&#160;" />
+				<h:outputText id="dobOutput" value="#{tramwajBean.tramwaj.dataProdukcji}" />
+				
+				<h:outputText value="&lt;br /&gt;" escape="false"/>
+				<h:outputText value="&lt;br /&gt;" escape="false"/>
+				
+			</h:panelGrid>
+
+		</h:form>
+	</ui:define>
+</ui:composition>
